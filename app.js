@@ -1,6 +1,6 @@
 var express = require('express'),
     path = require('path'),
-    port = process.env.PORT || 31,
+    port = process.env.PORT || 4141,
     app = express();
 
 app.configure(function() {
