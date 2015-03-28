@@ -11,11 +11,9 @@ with new tech!
 # example
 
 ```
-
-http://gelmezsengel.me/eray --- output : iPNE ERAY ✔
-http://gelmezsengel.me --- output : iPNE BURAK ✔
+http://gelmezsengel.me/eray     --- output : iPNE ERAY ✔
+http://gelmezsengel.me          --- output : iPNE BURAK ✔
 http://gelmezsengel.me/amk/kızı --- output : AMK KIZI ✔
-
 ```
 
 ## contributing

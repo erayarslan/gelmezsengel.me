@@ -1,4 +1,4 @@
-body{
+body {
     padding: 10px 0 0 0;
     margin: 0;
     -webkit-transform-style: preserve-3d;
@@ -12,8 +12,9 @@ body{
     background-color: #a62e54;
     overflow: hidden;
 }
-.box{
-    height: 200px;
+.box {
+    margin-top: 36px;
+    word-wrap: break-word;
     -webkit-transform-origin: center top;
     -moz-transform-origin: center top;
     -ms-transform-origin: center top;
@@ -21,13 +22,14 @@ body{
     opacity: 0.9;
     text-align: center;
     font-size: 200px;
-    line-height: 200px;
-    font-family: 'Alfa Slab One', arial;
+    line-height:0.85;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-weight: bold;
     color: #fff;
 }
-.box-2{
+.box-2 {
     display: none;
 }
-.box-3{
+.box-3 {
     display: none;
 }
