@@ -14,7 +14,6 @@ body{
 }
 .box{
     height: 200px;
-    margin: 0 200px;
     -webkit-transform-origin: center top;
     -moz-transform-origin: center top;
     -ms-transform-origin: center top;
