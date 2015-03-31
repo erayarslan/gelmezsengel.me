@@ -1,7 +1,5 @@
-(function () {
-  'use strict';
-
-  var App = Backbone.Router.extend({
+define(['jquery', 'backbone'], function($, Backbone) {
+  return Backbone.Router.extend({
     routes: {
       '': 'index',
       ':text': 'basic',
@@ -33,7 +31,4 @@
       $("title").html("Error" + "lumAmman88");
     }
   });
-
-  var app = new App();
-  Backbone.history.start({ pushState: true });
-})();
+});
