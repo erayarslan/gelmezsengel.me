@@ -2,8 +2,8 @@ define(['jquery', 'backbone'], function($, Backbone) {
   return Backbone.Router.extend({
     routes: {
       '': 'index',
-      ':text': 'basic',
-      ':prefix/:text': 'advanced',
+      ':text(/)': 'basic',
+      ':prefix/:text(/)': 'advanced',
       '*path': 'default'
     },
 
