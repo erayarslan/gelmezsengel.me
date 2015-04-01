@@ -17,6 +17,9 @@ define(['jquery', 'backbone'], function($, Backbone) {
 
       $('meta[property="og:description"]').remove();
       $('head').append( '<meta name="og:description" content="'+'İPNE' + ' ' + 'BURAK' +'">' );
+
+      $('meta[property="og:image"]').remove();
+      $('head').append( '<meta name="og:image" content="http://chart.apis.google.com/chart?chst=d_text_outline&chld=000000|48|h|FFFFFF|_|amk"' );
     },
 
     basic: function (text) {
@@ -29,6 +32,9 @@ define(['jquery', 'backbone'], function($, Backbone) {
 
       $('meta[property="og:description"]').remove();
       $('head').append( '<meta name="og:description" content="' + 'İPNE' + ' ' + text.toUpperCase() +'">' );
+
+      $('meta[property="og:image"]').remove();
+      $('head').append( '<meta name="og:image" content="http://chart.apis.google.com/chart?chst=d_text_outline&chld=000000|48|h|FFFFFF|_|İPNE"' );
     },
 
     advanced: function (prefix, text) {
@@ -41,6 +47,9 @@ define(['jquery', 'backbone'], function($, Backbone) {
 
       $('meta[property="og:description"]').remove();
       $('head').append( '<meta name="og:description" content="'+prefix.toUpperCase() + ' ' + text.toUpperCase() +'">' );
+
+      $('meta[property="og:image"]').remove();
+      $('head').append( '<meta name="og:image" content="http://chart.apis.google.com/chart?chst=d_text_outline&chld=000000|48|h|FFFFFF|_|' + prefix.toUpperCase() + '"' );
     },
 
     default: function() {
@@ -53,6 +62,9 @@ define(['jquery', 'backbone'], function($, Backbone) {
 
       $('meta[property="og:description"]').remove();
       $('head').append( '<meta name="og:description" content="'+'GELEMEDİ' + ' ' + '404' +'">' );
+
+      $('meta[property="og:image"]').remove();
+      $('head').append( '<meta name="og:image" content="http://chart.apis.google.com/chart?chst=d_text_outline&chld=000000|48|h|FFFFFF|_|404"' );
     }
   });
 });
