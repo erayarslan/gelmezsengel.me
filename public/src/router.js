@@ -12,14 +12,9 @@ define(['jquery', 'backbone'], function($, Backbone) {
       $("#prefix").html("İPNE");
       $("title").html("BurakOnganlimAmman88");
       //
-      $('meta[property="og:title"]').remove();
-      $('head').append( '<meta name="og:title" content="'+'BurakOnganlimAmman88'+'">' );
-
-      $('meta[property="og:description"]').remove();
-      $('head').append( '<meta name="og:description" content="'+'İPNE' + ' ' + 'BURAK' +'">' );
-
-      $('meta[property="og:image"]').remove();
-      $('head').append( '<meta name="og:image" content="http://chart.apis.google.com/chart?chst=d_text_outline&chld=000000|48|h|FFFFFF|_|amk"' );
+      $("#og_title").attr("content", "BurakOnganlimAmman88");
+      $("#og_description").attr("content", "İPNE BURAK");
+      $("#og_image").attr("content", "http://chart.apis.google.com/chart?chst=d_text_outline&chld=000000|48|h|FFFFFF|_|İPNE");
     },
 
     basic: function (text) {
@@ -27,14 +22,9 @@ define(['jquery', 'backbone'], function($, Backbone) {
       $("#prefix").html("İPNE");
       $("title").html(text + "limAmman88");
       //
-      $('meta[property="og:title"]').remove();
-      $('head').append( '<meta name="og:title" content="'+text + 'limAmman88'+'">' );
-
-      $('meta[property="og:description"]').remove();
-      $('head').append( '<meta name="og:description" content="' + 'İPNE' + ' ' + text.toUpperCase() +'">' );
-
-      $('meta[property="og:image"]').remove();
-      $('head').append( '<meta name="og:image" content="http://chart.apis.google.com/chart?chst=d_text_outline&chld=000000|48|h|FFFFFF|_|İPNE"' );
+      $("#og_title").attr("content", text + "limAmman88");
+      $("#og_description").attr("content", "İPNE " + text.toUpperCase());
+      $("#og_image").attr("content", "http://chart.apis.google.com/chart?chst=d_text_outline&chld=000000|48|h|FFFFFF|_|İPNE");
     },
 
     advanced: function (prefix, text) {
@@ -42,14 +32,9 @@ define(['jquery', 'backbone'], function($, Backbone) {
       $("#prefix").html(prefix.toUpperCase());
       $("title").html(text + "limAmman88");
       //
-      $('meta[property="og:title"]').remove();
-      $('head').append( '<meta name="og:title" content="'+text + 'limAmman88'+'">' );
-
-      $('meta[property="og:description"]').remove();
-      $('head').append( '<meta name="og:description" content="'+prefix.toUpperCase() + ' ' + text.toUpperCase() +'">' );
-
-      $('meta[property="og:image"]').remove();
-      $('head').append( '<meta name="og:image" content="http://chart.apis.google.com/chart?chst=d_text_outline&chld=000000|48|h|FFFFFF|_|' + prefix.toUpperCase() + '"' );
+      $("#og_title").attr("content", text + "limAmman88");
+      $("#og_description").attr("content", prefix.toUpperCase() + " " + text.toUpperCase());
+      $("#og_image").attr("content", "http://chart.apis.google.com/chart?chst=d_text_outline&chld=000000|48|h|FFFFFF|_|" + prefix.toUpperCase());
     },
 
     default: function() {
@@ -57,14 +42,9 @@ define(['jquery', 'backbone'], function($, Backbone) {
       $("#prefix").html("GELEMEDİ");
       $("title").html("Error" + "lumAmman88");
       //
-      $('meta[property="og:title"]').remove();
-      $('head').append( '<meta name="og:title" content="'+'ErrorlumAmman88'+'">' );
-
-      $('meta[property="og:description"]').remove();
-      $('head').append( '<meta name="og:description" content="'+'GELEMEDİ' + ' ' + '404' +'">' );
-
-      $('meta[property="og:image"]').remove();
-      $('head').append( '<meta name="og:image" content="http://chart.apis.google.com/chart?chst=d_text_outline&chld=000000|48|h|FFFFFF|_|404"' );
+      $("#og_title").attr("content", "ErrorlumAmman88");
+      $("#og_description").attr("content", "GELEMEDİ 404");
+      $("#og_image").attr("content", "http://chart.apis.google.com/chart?chst=d_text_outline&chld=000000|48|h|FFFFFF|_|404");
     }
   });
 });
