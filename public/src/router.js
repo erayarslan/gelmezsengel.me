@@ -1,4 +1,24 @@
 define(['jquery', 'backbone'], function($, Backbone) {
+  var setWords = function(name, prefix) {
+    $("#name").html(name.toUpperCase());
+    $("#prefix").html(prefix.toUpperCase());
+    $("title").html(name + "limAmman88");
+  };
+
+  var setMetas = function(name, prefix) {
+    $("#og_title").attr("content", name + "limAmman88");
+    $("#og_description").attr("content", prefix.toUpperCase() + " " + name.toUpperCase());
+    $("#og_image").attr(
+      "content",
+      "http://chart.apis.google.com/chart?chst=d_text_outline&chld=000000|48|h|FFFFFF|_|" + prefix.toUpperCase()
+    );
+  };
+
+  var setDatas = function(name, prefix) {
+    setWords(name, prefix);
+    setMetas(name, prefix);
+  };
+
   return Backbone.Router.extend({
     routes: {
       '': 'index',
@@ -8,43 +28,19 @@ define(['jquery', 'backbone'], function($, Backbone) {
     },
 
     index: function () {
-      $("#name").html("BURAK");
-      $("#prefix").html("İPNE");
-      $("title").html("BurakOnganlimAmman88");
-      //
-      $("#og_title").attr("content", "BurakOnganlimAmman88");
-      $("#og_description").attr("content", "İPNE BURAK");
-      $("#og_image").attr("content", "http://chart.apis.google.com/chart?chst=d_text_outline&chld=000000|48|h|FFFFFF|_|İPNE");
+      setDatas("BURAK","İPNE")
     },
 
     basic: function (text) {
-      $("#name").html(text.toUpperCase());
-      $("#prefix").html("İPNE");
-      $("title").html(text + "limAmman88");
-      //
-      $("#og_title").attr("content", text + "limAmman88");
-      $("#og_description").attr("content", "İPNE " + text.toUpperCase());
-      $("#og_image").attr("content", "http://chart.apis.google.com/chart?chst=d_text_outline&chld=000000|48|h|FFFFFF|_|İPNE");
+      setDatas(text, "İPNE");
     },
 
     advanced: function (prefix, text) {
-      $("#name").html(text.toUpperCase());
-      $("#prefix").html(prefix.toUpperCase());
-      $("title").html(text + "limAmman88");
-      //
-      $("#og_title").attr("content", text + "limAmman88");
-      $("#og_description").attr("content", prefix.toUpperCase() + " " + text.toUpperCase());
-      $("#og_image").attr("content", "http://chart.apis.google.com/chart?chst=d_text_outline&chld=000000|48|h|FFFFFF|_|" + prefix.toUpperCase());
+      setDatas(text, prefix);
     },
 
     default: function() {
-      $("#name").html("404");
-      $("#prefix").html("GELEMEDİ");
-      $("title").html("Error" + "lumAmman88");
-      //
-      $("#og_title").attr("content", "ErrorlumAmman88");
-      $("#og_description").attr("content", "GELEMEDİ 404");
-      $("#og_image").attr("content", "http://chart.apis.google.com/chart?chst=d_text_outline&chld=000000|48|h|FFFFFF|_|404");
+      setDatas("ERROR", "404");
     }
   });
 });
