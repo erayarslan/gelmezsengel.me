@@ -16,6 +16,27 @@ http://gelmezsengel.me          --- output : iPNE BURAK ✔
 http://gelmezsengel.me/amk/kızı --- output : AMK KIZI ✔
 ```
 
+# nginx conf (single-page seo)
+
+```nginx
+# seo server      : 127.0.0.1:10300
+# gelmezsengel.me : 127.0.0.1:4141
+
+location  / {
+
+    proxy_pass http://127.0.0.1:4141;
+
+    if ($http_user_agent ~* bot)  {
+        proxy_pass http://127.0.0.1:10300;
+    }
+
+    if ($http_user_agent ~* facebookexternalhit) {
+        proxy_pass http://127.0.0.1:10300;
+    }
+
+}
+```
+
 ## contributing
 
 1. fork it!
