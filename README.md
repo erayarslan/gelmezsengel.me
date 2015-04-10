@@ -23,17 +23,15 @@ http://gelmezsengel.me/amk/kızı --- output : AMK KIZI ✔
 # gelmezsengel.me : 127.0.0.1:4141
 
 location  / {
-
     proxy_pass http://127.0.0.1:4141;
 
-    if ($http_user_agent ~* bot)  {
+    if ($http_user_agent ~* bot)  { # for search engine bots (like googlebot)
         proxy_pass http://127.0.0.1:10300;
     }
 
-    if ($http_user_agent ~* facebookexternalhit) {
+    if ($http_user_agent ~* facebookexternalhit) { # for facebook's og
         proxy_pass http://127.0.0.1:10300;
     }
-
 }
 ```
 
