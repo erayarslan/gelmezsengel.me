@@ -1,11 +1,11 @@
-define(['jquery', 'backbone'], function($, Backbone) {
-  var setWords = function(name, prefix) {
+define(['jquery', 'backbone', 'backbone.routefilter'], function ($, Backbone) {
+  var setWords = function (name, prefix) {
     $("#name").html(name.toUpperCase());
     $("#prefix").html(prefix.toUpperCase());
     $("title").html(name + "limAmman88");
   };
 
-  var setMetas = function(name, prefix) {
+  var setMetas = function (name, prefix) {
     $("#og_title").attr("content", name + "limAmman88");
     $("#og_description").attr("content", prefix.toUpperCase() + " " + name.toUpperCase());
     $("#og_image").attr(
@@ -14,7 +14,7 @@ define(['jquery', 'backbone'], function($, Backbone) {
     );
   };
 
-  var setDatas = function(name, prefix) {
+  var setDatas = function (name, prefix) {
     setWords(name, prefix);
     setMetas(name, prefix);
   };
@@ -27,8 +27,16 @@ define(['jquery', 'backbone'], function($, Backbone) {
       '*path': 'default'
     },
 
+    before: function (route, params) {
+      //
+    },
+
+    after: function (route, params) {
+      //
+    },
+
     index: function () {
-      setDatas("BURAK","İPNE")
+      setDatas("BURAK", "İPNE")
     },
 
     basic: function (text) {
@@ -39,7 +47,7 @@ define(['jquery', 'backbone'], function($, Backbone) {
       setDatas(text, prefix);
     },
 
-    default: function() {
+    default: function () {
       setDatas("ERROR", "404");
     }
   });

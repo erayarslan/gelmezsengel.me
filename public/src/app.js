@@ -1,27 +1,30 @@
 requirejs.config({
   baseUrl: "/src/lib",
   shim: {
-    'jquery' : {
-      exports : '$'
+    'jquery': {
+      exports: '$'
     },
-    'underscore' : {
-      exports : '_'
+    'underscore': {
+      exports: '_'
     },
     'backbone': {
-      deps: ['jquery','underscore'],
+      deps: ['jquery', 'underscore'],
       exports: 'Backbone'
     },
     '../init': {
       deps: ['jquery']
+    },
+    'backbone.routefilter': {
+      deps: ['backbone']
     }
   }
 });
 
-require(["jquery", "backbone", "../router", "../init"], function($, Backbone, Router) {
+require(["jquery", "backbone", "../router", "../init"], function ($, Backbone, Router) {
   var router = new Router();
 
-  $(document).on("click", "a:not([data-bypass])", function(evt) {
-    var href = { prop: $(this).prop("href"), attr: $(this).attr("href") };
+  $(document).on("click", "a:not([data-bypass])", function (evt) {
+    var href = {prop: $(this).prop("href"), attr: $(this).attr("href")};
     var root = location.protocol + "//" + location.host + Backbone.history.options.root;
 
     if (href.prop && href.prop.slice(0, root.length) === root) {
@@ -30,5 +33,5 @@ require(["jquery", "backbone", "../router", "../init"], function($, Backbone, Ro
     }
   });
 
-  Backbone.history.start({ pushState: true });
+  Backbone.history.start({pushState: true});
 });
