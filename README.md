@@ -35,6 +35,10 @@ location  / {
 }
 ```
 
+# dependencies
+
+[moviepilot-seoserver](https://github.com/moviepilot/seoserver)
+
 ## contributing
 
 1. fork it!
