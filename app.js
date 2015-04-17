@@ -27,24 +27,9 @@ app.get('/sitemap.xml', function (request, response) {
   response.header('Content-Type','text/xml').send(utils.generate_xml_sitemap(paths.find({})));
 });
 
-app.get('/robots.txt', function (request, response) {
-  response.sendfile(__dirname + '/robots.txt');
-});
-
 app.get('*', function (request, response) {
   if (request.path !== "/favicon.ico") {
-    var result = request.path.split("/");
-    if (result.length == 2 || result.length == 3 || result.length == 4) {
-      if (result.length == 3 && result[0] === "" && result[2] === "") {
-        saveOrUpdate(/* "", result[1] */ request.path);
-      } else if (result.length == 3 && result[0] === "") {
-        saveOrUpdate(/* result[1], result[2] */ request.path);
-      } else if (result.length == 2 && result[0] === "") {
-        saveOrUpdate(/* "", result[1] */ request.path);
-      } else if (result.length == 4 && result[0] === "" && result[3] === "") {
-        saveOrUpdate(/* result[1], result[2] */ request.path);
-      }
-    }
+    utils.pathCheck(request.path.split("/"), request.path, saveOrUpdate);
   }
   response.sendfile(__dirname + '/public/index.html');
 });
