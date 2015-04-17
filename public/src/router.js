@@ -48,7 +48,7 @@ define(['jquery', 'backbone', 'backbone.routefilter'], function ($, Backbone) {
     },
 
     default: function () {
-      setDatas("ERROR", "404");
+      setDatas("İPNE", "GELEMEDİ");
     }
   });
 });
