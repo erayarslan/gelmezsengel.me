@@ -28,7 +28,7 @@ app.get('/sitemap.xml', function (request, response) {
 });
 
 app.get('/robots.txt', function (request, response) {
-  response.header('Content-Type','text/plain').send("User-agent: *\nDisallow: ");
+  response.sendfile(__dirname + '/robots.txt');
 });
 
 app.get('*', function (request, response) {
