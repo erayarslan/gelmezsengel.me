@@ -27,7 +27,8 @@ app.get('*', function (request, response) {
 });
 
 var map = sitemap({
-  generate: app
+  generate: app,
+  url: "gelmezsengel.me"
 });
 
 app.listen(process.env.PORT || 4141);
