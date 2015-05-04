@@ -16,6 +16,10 @@ http://gelmezsengel.me          --- output : iPNE BURAK ✔
 http://gelmezsengel.me/amk/kızı --- output : AMK KIZI ✔
 ```
 
+# seo result
+
+[l00kup](https://archive.is/c0uAa)
+
 # nginx conf (single-page seo)
 
 ```nginx
