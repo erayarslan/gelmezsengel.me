@@ -3,18 +3,20 @@
  * author eray arslan
  */
 
+var db_name = "paths";
 var express = require('express');
 var app = express();
 var fileSystem = require('fs');
 var logFile = fileSystem.createWriteStream('log.txt', {flags: 'a'});
-var loki = require('lokijs');
-var db = new loki('gelmezsengelme.json');
-var paths = db.addCollection('paths');
+var low = require('lowdb');
+var db = new low('gelmezsengelme.json', {
+  autosave: true
+});
 var utils = require("./utils");
 
 var saveOrUpdate = function (path) {
-  if (!(paths.find({'path': path}).length >= 1)) {
-    paths.insert({path: path});
+  if (!(db(db_name).filter({path: path})).length >= 1) {
+    db(db_name).push({path: path});
   }
 };
 
@@ -24,7 +26,7 @@ app.configure(function () {
 });
 
 app.get('/sitemap.xml', function (request, response) {
-  response.header('Content-Type','text/xml').send(utils.generate_xml_sitemap(paths.find({})));
+  response.header('Content-Type', 'text/xml').send(utils.generate_xml_sitemap(db(db_name).filter()));
 });
 
 app.get('*', function (request, response) {
