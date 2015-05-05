@@ -9,9 +9,7 @@ var app = express();
 var fileSystem = require('fs');
 var logFile = fileSystem.createWriteStream('log.txt', {flags: 'a'});
 var low = require('lowdb');
-var db = new low('gelmezsengelme.json', {
-  autosave: true
-});
+var db = new low('gelmezsengelme.json', {autosave: true});
 var utils = require("./utils");
 
 var saveOrUpdate = function (path) {
