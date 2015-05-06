@@ -16,17 +16,27 @@ module.exports = {
     xml += '</urlset>';
     return xml;
   },
-  pathCheck : function(result, path, func) {
+  pathCheck : function(result, path, func, req) {
     if (result.length == 2 || result.length == 3 || result.length == 4) {
       if (result.length == 3 && result[0] === "" && result[2] === "") {
-        func(path);
+        func(path, req);
       } else if (result.length == 3 && result[0] === "") {
-        func(path);
+        func(path, req);
       } else if (result.length == 2 && result[0] === "") {
-        func(path);
+        func(path, req);
       } else if (result.length == 4 && result[0] === "" && result[3] === "") {
-        func(path);
+        func(path, req);
       }
     }
+  },
+  getClientIp : function (req) {
+    var ipAddress;
+    var forwardedIpsStr = req.header('x-forwarded-for');
+    if (forwardedIpsStr) {
+      var forwardedIps = forwardedIpsStr.split(',');
+      ipAddress = forwardedIps[0];
+    } if (!ipAddress) {
+      ipAddress = req.connection.remoteAddress;
+    } return ipAddress;
   }
 };
