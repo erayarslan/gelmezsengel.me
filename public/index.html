@@ -20,7 +20,13 @@
     <script data-main="/src/app" src="/src/lib/require.js"></script>
 </head>
 <body>
-<div class="box box-1" id="prefix">iPNE</div>
-<div class="box box-2" id="name">BURAK</div>
+<script type="text/template" id="main_template">
+    <div class="box box-1"><%- prefix %></div>
+    <div class="box box-2"><%- name %></div>
+</script>
+<div id="content">
+    <div class="box box-1">İPNE</div>
+    <div class="box box-2">BURAK</div>
+</div>
 </body>
 </html>

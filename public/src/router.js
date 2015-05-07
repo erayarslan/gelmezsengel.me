@@ -1,7 +1,13 @@
-define(['jquery', 'backbone', 'backbone.routefilter'], function ($, Backbone) {
+define(['jquery', 'underscore', 'backbone', 'backbone.routefilter'], function ($, _, Backbone) {
   var setWords = function (name, prefix) {
-    $("#name").html(name.toUpperCase());
-    $("#prefix").html(prefix.toUpperCase());
+    var compiled = _.template($("#main_template").html());
+    var html = compiled({
+      prefix: prefix.toUpperCase(),
+      name: name.toUpperCase()
+    });
+
+    $("#content").html(html);
+
     $("title").html(name + "limAmman88");
   };
 
