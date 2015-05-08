@@ -1,5 +1,9 @@
 requirejs.config({
   baseUrl: "/src/lib",
+  paths: {
+    templates: '../template',
+    base: '../'
+  },
   shim: {
     'jquery': {
       exports: '$'
@@ -11,7 +15,7 @@ requirejs.config({
       deps: ['jquery', 'underscore'],
       exports: 'Backbone'
     },
-    '../init': {
+    'base/init': {
       deps: ['jquery']
     },
     'backbone.routefilter': {
@@ -20,7 +24,7 @@ requirejs.config({
   }
 });
 
-require(["jquery", "backbone", "../router", "../init"], function ($, Backbone, Router) {
+require(["jquery", "backbone", "base/router", "base/init"], function ($, Backbone, Router) {
   var router = new Router();
 
   $(document).on("click", "a:not([data-bypass])", function (evt) {
