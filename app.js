@@ -13,7 +13,6 @@ var logFile = fileSystem.createWriteStream('log.txt', {flags: 'a'});
 var db = new low('gelmezsengelme.json', {autosave: true});
 var app = express();
 
-
 var saveOrUpdate = function (path, req) {
   if (!(db(db_name).filter({path: path})).length >= 1) {
     db(db_name).push({
