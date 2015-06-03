@@ -30,7 +30,7 @@ define(['jquery', 'underscore', 'backbone', 'text!templates/content.html', 'back
     },
 
     index: function () {
-      setDatas("BURAK", "İPNE")
+      setDatas("BURAK", "İPNE");
     },
 
     basic: function (text) {
