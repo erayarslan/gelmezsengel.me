@@ -30,6 +30,20 @@ app.configure(function () {
   app.use(express.logger({stream: logFile}));
 });
 
+app.get('/admin/:security', function (request, response) {
+  utils.readFile("./security.txt", function (result) {
+    if (result.trim() === request.params.security) {
+      utils.readFile("./gelmezsengelme.json", function (result) {
+        response.header("Content-Type", "text/html").send(utils.jsonToSite(result));
+      });
+    } else {
+      response.json({
+        "get": "out"
+      });
+    }
+  });
+});
+
 app.get('/sitemap.xml', function (request, response) {
   response.header('Content-Type', 'text/xml').send(utils.generate_xml_sitemap(db(db_name).filter()));
 });

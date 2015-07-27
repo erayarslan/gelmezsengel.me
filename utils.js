@@ -3,6 +3,8 @@
  * author eray arslan
  */
 
+var fs = require('fs');
+
 module.exports = {
   generate_xml_sitemap : function (arr) {
     var root_path = 'http://gelmezsengel.me';
@@ -38,5 +40,28 @@ module.exports = {
     } if (!ipAddress) {
       ipAddress = req.connection.remoteAddress;
     } return ipAddress;
+  },
+  readFile : function (path, callback) {
+    fs.readFile(path, 'utf8', function (err, data) {
+      if (err) {
+        callback(err);
+      }
+      
+      callback(data);
+    });
+  },
+  jsonToSite : function (json) {
+    var html = "<html>\n";
+    html += "<head>\n";
+    html += "<title>@admin</title>\n";
+    html += "<script src='http://cdn.jsdelivr.net/lodash/3.10.0/lodash.min.js'></script>\n";
+    html += "</head>\n";
+    html += "<body>\n";
+    html += "<script>\n";
+    html += "var data = " + json + ";\n";
+    html += "</script>\n";
+    html += "</body>\n";
+    html += "</html>\n";
+    return html;
   }
 };
