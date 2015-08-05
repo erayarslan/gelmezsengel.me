@@ -1,7 +1,7 @@
 ![Logo](http://s22.postimg.org/8g4c7b8j5/lele.jpg)
 
 # gelmezsengel.me
-dont call me back!
+art of single-page!
 
 # example
 ```
