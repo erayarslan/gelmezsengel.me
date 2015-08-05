@@ -11,6 +11,7 @@ var low = require('lowdb');
 var db_name = "paths";
 var logFile = fileSystem.createWriteStream('log.txt', {flags: 'a'});
 var db = new low('gelmezsengelme.json', {autosave: true});
+var hook = new low('hook.json', {autosave: true});
 var app = express();
 
 var saveOrUpdate = function (path, req) {
@@ -28,6 +29,11 @@ var saveOrUpdate = function (path, req) {
 app.configure(function () {
   app.use(express.static(__dirname + '/public'));
   app.use(express.logger({stream: logFile}));
+});
+
+app.post('/hook', function (request, response) {
+  hook("hooks").push(request.body);
+  response.status(200).json({status: "OK"});
 });
 
 app.get('/admin/:security', function (request, response) {
