@@ -48,6 +48,9 @@ server {
 
 # dependencies
 [moviepilot-seoserver](https://github.com/moviepilot/seoserver)
+```sh
+$ forever start bin/seoserver start -p 10300
+```
 
 ## contributing
 1. fork it!
