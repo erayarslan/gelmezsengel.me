@@ -29,6 +29,7 @@ var saveOrUpdate = function (path, req) {
 app.configure(function () {
   app.use(express.static(__dirname + '/public'));
   app.use(express.logger({stream: logFile}));
+  app.use(express.bodyParser());
 });
 
 app.post('/hook', function (request, response) {
